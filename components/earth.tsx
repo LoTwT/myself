@@ -1,7 +1,7 @@
 "use client"
 
 import type { WebGPURootState } from "@/types/three"
-import { useTexture } from "@react-three/drei"
+import { useScroll, useTexture } from "@react-three/drei"
 import { useFrame, useThree } from "@react-three/fiber"
 import { useRef } from "react"
 import {
@@ -31,7 +31,7 @@ function Earth() {
   camera.fov = 24
   camera.near = 0.1
   camera.far = 100
-  camera.position.set(4.5, 2, 3)
+  // camera.position.set(4.5, 2, 3)
 
   const [dayTexture, nightTexture, bumpRoughnessCloudsTexture] = useTexture([
     "/earth_day_4096.jpg",
@@ -106,6 +106,19 @@ function Earth() {
     if (globeRef.current) {
       globeRef.current.rotation.y += delta * 0.025
     }
+  })
+
+  const scroll = useScroll()
+  useFrame((state) => {
+    // The offset is between 0 and 1, you can apply it to your models any way you like
+    const offset = 1 - scroll.offset
+    state.camera.position.set(
+      (Math.sin(offset) * 10) / 2,
+      (Math.atan(offset * Math.PI * 2) * 5) / 2,
+      (Math.cos((offset * Math.PI) / 3) * 10) / 2,
+    )
+
+    state.camera.lookAt(0, 0, 0)
   })
 
   return (

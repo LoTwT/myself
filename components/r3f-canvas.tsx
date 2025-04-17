@@ -2,7 +2,7 @@
 
 import type { ThreeToJSXElements } from "@react-three/fiber"
 import type { PropsWithChildren } from "react"
-import { OrbitControls } from "@react-three/drei"
+import { ScrollControls } from "@react-three/drei"
 import { Canvas, extend } from "@react-three/fiber"
 import * as THREE from "three/webgpu"
 
@@ -23,8 +23,7 @@ function R3fCanvas({ children }: PropsWithChildren) {
         return renderer
       }}
     >
-      <OrbitControls enableDamping minDistance={0.1} maxDistance={50} />
-      {children}
+      <ScrollControls>{children}</ScrollControls>
     </Canvas>
   )
 }
