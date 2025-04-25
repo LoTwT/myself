@@ -3,7 +3,7 @@
 import type { WebGPURootState } from "@/types/three"
 import { useScroll, useTexture } from "@react-three/drei"
 import { useFrame, useThree } from "@react-three/fiber"
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 import {
   bumpMap,
   cameraPosition,
@@ -101,6 +101,12 @@ function Earth() {
     .remap(0.73, 1, 1, 0)
     .pow(3)
     .mul(sunOrientation.smoothstep(-0.5, 1))
+
+  useEffect(() => {
+    if (globeRef.current) {
+      globeRef.current.rotation.y = -2.73
+    }
+  }, [])
 
   useFrame((state, delta) => {
     if (globeRef.current) {
