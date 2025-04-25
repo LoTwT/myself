@@ -39,6 +39,9 @@ importers:
       '@iconify-json/lucide':
         specifier: ^1.2.39
         version: 1.2.39
+      '@iconify-json/qlementine-icons':
+        specifier: ^1.2.6
+        version: 1.2.6
       '@svgr/core':
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.8.2)
@@ -388,6 +391,9 @@ packages:
 
   '@iconify-json/lucide@1.2.39':
     resolution: {integrity: sha512-1BKCamEZRvArR7PErYCP4SZo9pAANJy6iQWpynI3GM8QKSQtWQgvw6usqGIFCQeJwFZHPOn2OcbDR4P56DyEaQ==}
+
+  '@iconify-json/qlementine-icons@1.2.6':
+    resolution: {integrity: sha512-jUKUGXrXXjUw7rVBEzCeKco9gq03yRGmhxVP9n1A3YyCRWOmxoxotXDAgQIdeHJNvD8TyO0tu2LrS1oLtQ+doA==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -3288,6 +3294,10 @@ snapshots:
   '@humanwhocodes/retry@0.4.2': {}
 
   '@iconify-json/lucide@1.2.39':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/qlementine-icons@1.2.6':
     dependencies:
       '@iconify/types': 2.0.0
 
